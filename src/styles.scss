@@ -1,0 +1,12 @@
+body {
+    height: 100vh;
+    margin: 0px;
+    font-family: sans-serif;
+    font-size: 16px;
+}
+
+.text-ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

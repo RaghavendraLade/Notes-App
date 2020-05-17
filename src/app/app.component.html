@@ -1,0 +1,33 @@
+<header class="n-header">
+    <div>
+        <button class="btn-icon" (click)="toggleSidebar()">
+            <i class="fa fa-th-list" aria-hidden="true"></i>
+        </button>
+        <button class="btn-icon" (click)="delete()">
+            <i class="fa fa-trash-o" aria-hidden="true"></i>
+        </button>
+        <button class="btn-icon" (click)="create()">
+            <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+        </button>
+    </div>
+    <div class="search-input">
+        <input type="text" [(ngModel)]="searchKey" (ngModelChange)="search($event)">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+</header>
+<section class="n-container" [ngClass]="{'toggle': toggle}">
+    <div class="side-bar">
+        <div class="note-item" [ngClass]="{'active': note.id === notes.id}" *ngFor="let note of list" (click)="openInNoteArea(note)">
+            <h4 class="title text-ellipsis">{{note.text || (note.dirty ? '' : 'New Notes')}}</h4>
+            <p class="content text-ellipsis">
+                <span>{{note.updatedTime | date: 'medium'}}</span>
+            </p>
+        </div>
+    </div>
+    <div class="n-workspace">
+        <p class="note-time">{{notes.updatedTime | date: 'medium'}}</p>
+        <div class="note-area">
+            <textarea #workspace class="content" *ngIf="notes" autofocus [(ngModel)]="notes.text" (keypress)="noteChange(notes.text)"></textarea>
+        </div>
+    </div>
+</section>
