@@ -1,3 +1,3 @@
 # Notes-App
 
-[Click here](www.google.com) to open in heroku
+[Click here](https://ragha-notes-app.herokuapp.com/) to open in heroku
